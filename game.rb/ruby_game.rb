@@ -15,6 +15,6 @@ class Game
     end
   end
 
-  game = lottery.new
+game = lottery.new
 
-  game.play
+game.play
