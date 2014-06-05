@@ -1,12 +1,25 @@
 # this is a guessing game
 class Game
   def initialize
-    puts "Choose a number from 1 to 100"
-    @answer = rand(1..100)
-    @number = gets.to_i
-  end
+    @answer = nil
+    @number = nil
+  end # initialize
 
-  def user_inputs
+  def run
+    puts "Choose a number from 1 to 100"
+    @answer = 10 # rand(1..100)
+    @number = gets.to_i
+    repeat
+  end # run
+
+  def repeat
+    5.times do
+      guess
+    end # 5.times
+    puts "Sorry try again later"
+  end # repeat
+
+  def guess
     if @number == @answer
       puts "nice work!"
       exit
@@ -14,18 +27,10 @@ class Game
       puts "number is to high"
     elsif @number < @answer
       puts "number is to low"
-    end
+    end # if
     @number = gets.to_i
-  end
+  end # user_inputs
 
-  def repeat
-    if @number != @answer # why a guard clause...how to use?
-      5.times do
-        user_inputs
-      end
-      puts "Sorry try again later"
-    end
-  end
-end
+end # class Game
 game = Game.new
-game.repeat
+game.run
